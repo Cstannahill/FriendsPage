@@ -32,16 +32,7 @@ namespace Web.Api.Controllers
                     response = new ItemsResponse<FriendV3> { Items = list };
                 }
             }
-            catch (SqlException sqlEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"SqlException Error: {sqlEx.Message}");
-            }
-            catch (ArgumentException argEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"ArgumentException Error: {argEx.Message}");
-            }
+
             catch (Exception ex)
             {
                 code = 500;
@@ -69,16 +60,7 @@ namespace Web.Api.Controllers
                     response = new ItemResponse<FriendV3> { Item = friend };
                 }
             }
-            catch (SqlException sqlEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"SqlException Error: {sqlEx.Message}");
-            }
-            catch (ArgumentException argEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"ArgumentException Error: {argEx.Message}");
-            }
+
             catch (Exception ex)
             {
                 code = 500;
@@ -108,16 +90,6 @@ namespace Web.Api.Controllers
                     return StatusCode(code, result);
 
                 }
-            }
-            catch (SqlException sqlEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"SqlException Error: {sqlEx.Message}");
-            }
-            catch (ArgumentException argEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"ArgumentException Error: {argEx.Message}");
             }
             catch (Exception ex)
             {
@@ -149,16 +121,6 @@ namespace Web.Api.Controllers
 
                 }
             }
-            catch (SqlException sqlEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"SqlException Error: {sqlEx.Message}");
-            }
-            catch (ArgumentException argEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"ArgumentException Error: {argEx.Message}");
-            }
             catch (Exception ex)
             {
                 code = 500;
@@ -178,16 +140,6 @@ namespace Web.Api.Controllers
                 response = new SuccessResponse();
                 
             }   
-            catch (SqlException sqlEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"SqlException Error: {sqlEx.Message}");
-            }
-            catch (ArgumentException argEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"ArgumentException Error: {argEx.Message}");
-            }
             catch (Exception ex)
             {
                 code = 500;
@@ -207,18 +159,6 @@ namespace Web.Api.Controllers
             {
                 int id = _service.AddV3(request, userId);
                 response = new ItemResponse<int> { Item = id };
-            }
-            catch (SqlException sqlEx)
-            {
-                code = 500;
-
-                response = new ErrorResponse($"SqlException Error: {sqlEx.Message}");
-            }
-            catch (ArgumentException argEx)
-            {
-                code = 500;
-
-                response = new ErrorResponse($"ArgumentException Error: {argEx.Message}");
             }
             catch (Exception ex)
             {
@@ -241,16 +181,7 @@ namespace Web.Api.Controllers
                 _service.UpdateV3(request, userId);
                 response = new SuccessResponse();
             }
-            catch (SqlException sqlEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"SqlException Error: {sqlEx.Message}");
-            }
-            catch (ArgumentException argEx)
-            {
-                code = 500;
-                response = new ErrorResponse($"ArgumentException Error: {argEx.Message}");
-            }
+
             catch (Exception ex)
             {
                 code = 500;
